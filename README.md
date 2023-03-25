@@ -20,4 +20,4 @@ You can read about the rules used in the suggestion algorithm [here](https://www
 Run Angry Reviewer on the current document in one of two ways:
 
 1. Run the command "Run Angry Reviewer on current document"
-2.Click on the Angry Reviewer button in the ribbon
+2. Click on the Angry Reviewer button in the ribbon
