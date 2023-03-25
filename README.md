@@ -14,11 +14,10 @@ You can read about the rules used in the suggestion algorithm [here](https://www
 - Use the following link: https://github.com/simonpacis/obsidian-angry-reviewer 
 - Click "Add Plugin"
 - Go to Community Plugins, refresh, and enable Angry Reviewer 
+- Create the folder "AngryReviewerNotes" in your Vault root
 
 # Usage
 Run Angry Reviewer on the current document in one of two ways:
 
-1.
-Run the command "Run Angry Reviewer on current document"
-2.
-Click on the Angry Reviewer button in the ribbon
+1. Run the command "Run Angry Reviewer on current document"
+2.Click on the Angry Reviewer button in the ribbon
