@@ -6,7 +6,7 @@ This plugin is the offline version of the free web-service AngryReviewer.com dev
 You can read about the rules used in the suggestion algorithm [here](https://www.angryreviewer.com/rules).
 
 # Installation
-### Via BRAT (easiest)
+### Via BRAT 
 - Install BRAT from Community Plugins in Obsidian
 - Open Command Palette and run the command "BRAT: Add a beta plugin for testing"
 - Use the following link: https://github.com/simonpacis/obsidian-angry-reviewer 
