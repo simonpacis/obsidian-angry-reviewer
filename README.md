@@ -14,7 +14,6 @@ You can read about the rules used in the suggestion algorithm [here](https://www
 - Use the following link: https://github.com/simonpacis/obsidian-angry-reviewer 
 - Click "Add Plugin"
 - Go to Community Plugins, refresh, and enable Angry Reviewer 
-- Create the folder "AngryReviewerNotes" in your Vault root
 
 # Usage
 Run Angry Reviewer on the current document in one of two ways:
