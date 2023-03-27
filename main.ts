@@ -40,7 +40,7 @@ export default class AngryReviewerPlugin extends Plugin {
 		};
 
 
-		PythonShell.runString(atob(AngryReviewerScript) + '\nobsidian_func("""'+text+'""", "'+this.settings.english+'")', options).then (messages => {
+		PythonShell.runString(AngryReviewerScript(text, this.settings.english), options).then (messages => {
 
 			this.presentNotes(messages[0])
 
