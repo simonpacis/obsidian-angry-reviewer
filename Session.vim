@@ -232,8 +232,8 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 exe 'vert 1resize ' . ((&columns * 31 + 104) / 208)
-exe 'vert 2resize ' . ((&columns * 88 + 104) / 208)
-exe 'vert 3resize ' . ((&columns * 87 + 104) / 208)
+exe 'vert 2resize ' . ((&columns * 72 + 104) / 208)
+exe 'vert 3resize ' . ((&columns * 103 + 104) / 208)
 argglobal
 enew
 let s:cpo_save=&cpo
@@ -545,8 +545,8 @@ keepjumps 43
 normal! 05|
 wincmd w
 argglobal
-if bufexists("angry-reviewer-script.ts") | buffer angry-reviewer-script.ts | else | edit angry-reviewer-script.ts | endif
-balt main.ts
+if bufexists(".git/MERGE_MSG") | buffer .git/MERGE_MSG | else | edit .git/MERGE_MSG | endif
+balt angry-reviewer-script.ts
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -563,8 +563,8 @@ setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=//%s
+setlocal comments=:#
+setlocal commentstring=#\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -581,8 +581,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal noexpandtab
-if &filetype != 'typescript'
-setlocal filetype=typescript
+if &filetype != 'gitcommit'
+setlocal filetype=gitcommit
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -595,20 +595,20 @@ setlocal foldmethod=manual
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
-setlocal formatexpr=Fixedgq(v:lnum,v:count)
-setlocal formatoptions=croql
-setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatexpr=
+setlocal formatoptions=tln
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*\\|^\\s*[-*+]\\s\\+
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=0
 setlocal imsearch=-1
 setlocal include=
-setlocal includeexpr=
-setlocal indentexpr=GetTypescriptIndent()
-setlocal indentkeys=0{,0},0),0],0,,!^F,o,O,e
+setlocal includeexpr=substitute(v:fname,'^[^/]\\+/','','')
+setlocal indentexpr=
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal noinfercase
-setlocal iskeyword=@,48-57,_,192-255,$,#
-setlocal keywordprg=
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=git\ --git-dir='/Users/simonpacis/Documents/Development/Obsidian/obsidian-angry-reviewer/.git'\ show
 setlocal nolinebreak
 setlocal nolisp
 setlocal lispwords=
@@ -618,14 +618,14 @@ setlocal listchars=
 setlocal makeencoding=
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:]
-setlocal modeline
+setlocal nomodeline
 setlocal modifiable
 setlocal nrformats=bin,octal,hex
 set number
 setlocal number
 setlocal numberwidth=4
 setlocal omnifunc=
-setlocal path=
+setlocal path=~/Documents/Development/Obsidian/obsidian-angry-reviewer/.git,~/Documents/Development/Obsidian/obsidian-angry-reviewer,
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -640,7 +640,7 @@ setlocal noshortname
 setlocal showbreak=
 setlocal sidescrolloff=-1
 setlocal signcolumn=auto
-setlocal nosmartindent
+setlocal smartindent
 setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
@@ -648,11 +648,11 @@ setlocal spellfile=
 setlocal spelllang=en
 setlocal spelloptions=
 setlocal statusline=%!airline#statusline(3)
-setlocal suffixesadd=.ts,.d.ts,.tsx,.js,.jsx,.cjs,.mjs
+setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'typescript'
-setlocal syntax=typescript
+if &syntax != 'gitcommit'
+setlocal syntax=gitcommit
 endif
 setlocal tabstop=2
 setlocal tagcase=
@@ -661,7 +661,7 @@ setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=0
+setlocal textwidth=72
 setlocal thesaurus=
 setlocal noundofile
 setlocal undolevels=-123456
@@ -675,21 +675,22 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 16 - ((13 * winheight(0) + 28) / 57)
+let s:l = 7 - ((6 * winheight(0) + 28) / 57)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 16
-normal! 0
+keepjumps 7
+normal! 013|
 wincmd w
-2wincmd w
+3wincmd w
 exe 'vert 1resize ' . ((&columns * 31 + 104) / 208)
-exe 'vert 2resize ' . ((&columns * 88 + 104) / 208)
-exe 'vert 3resize ' . ((&columns * 87 + 104) / 208)
+exe 'vert 2resize ' . ((&columns * 72 + 104) / 208)
+exe 'vert 3resize ' . ((&columns * 103 + 104) / 208)
 tabnext 1
-badd +4 angry-reviewer-script.ts
+badd +1 .git/MERGE_MSG
+badd +1 main.ts
+badd +15 angry-reviewer-script.ts
 badd +2212 jkdsa
-badd +35 main.ts
 badd +88 icon.svg
 badd +24 README.md
 badd +1 decs.d.ts
